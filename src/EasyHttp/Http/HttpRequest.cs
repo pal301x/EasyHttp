@@ -198,7 +198,13 @@ namespace EasyHttp.Http
         {
             return true;
         }
-
+        public virtual void RemoveExtraHeader(string header, object value)
+        {
+            if (RawHeaders.ContainsKey(header))
+            {
+                RawHeaders.Remove(header);
+            }
+        }
         public virtual void AddExtraHeader(string header, object value)
         {
             if (value != null && !RawHeaders.ContainsKey(header))
