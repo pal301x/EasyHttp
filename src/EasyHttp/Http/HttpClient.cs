@@ -228,6 +228,13 @@ namespace EasyHttp.Http
             {
                 throw new HttpException(Response.StatusCode, Response.StatusDescription);
             }
+            if (Request.Cookies != null)
+            {
+                foreach (System.Net.Cookie item in Response.Cookies)
+                {
+                   Request.Cookies.Add(item);
+                }
+            }
             return Response;
         }
 
